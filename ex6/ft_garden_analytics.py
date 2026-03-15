@@ -12,45 +12,45 @@
 class Plant:
     def __init__(self, name: str, height: int):
         self.name = name
-        self.height = height
-        self.plant_type = "regular"
+        self.__height = height
+        self.__plant_type = "regular"
 
     def grow(self):
-        self.height += 1
+        self.__height += 1
         return f"{self.name} grew 1cm"
 
     def display(self):
-        return f"- {self.name}: {self.height}cm"
+        return f"- {self.name}: {self.__height}cm"
 
 
 class FloweringPlant(Plant):
     def __init__(self, name: str, height: int, color: str):
         super().__init__(name, height)
-        self.color = color
-        self.blooming = False
-        self.plant_type = "flowering"
+        self.__color = color
+        self.__blooming = False
+        self.__plant_type = "flowering"
 
     def grow(self):
-        self.blooming = True
+        self.__blooming = True
         return (super().grow())
 
     def display(self):
         s = super().display()
-        if (self.blooming is False):
-            return f"{s}, {self.color} flowers"
+        if (self.__blooming is False):
+            return f"{s}, {self.__color} flowers"
         else:
-            return f"{s}, {self.color} flowers (blooming)"
+            return f"{s}, {self.__color} flowers (blooming)"
 
 
 class PrizeFlower(FloweringPlant):
     def __init__(self, name: str, height: int, color: str, points: int):
         super().__init__(name, height, color)
-        self.points = points
-        self.plant_type = "prize flowers"
+        self.__points = points
+        self.__plant_type = "prize flowers"
 
     def display(self):
         s = super().display()
-        return f"{s}, Prize points: {self.points}"
+        return f"{s}, Prize points: {self.__points}"
 
 
 class Garden:

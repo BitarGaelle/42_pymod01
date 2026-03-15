@@ -2,21 +2,21 @@
 class Plant:
     def __init__(self, name: str, height: int, age: int):
         self.name = name
-        self.height = height
-        self.age = age
+        self.__height = height
+        self.__age = age
 
     def display(self) -> None:
-        print(f"{self.name}: {self.height}cm, {self.age} days old")
+        print(f"{self.name}: {self.__height}cm, {self.__age} days old")
 
 
 class Flower(Plant):
     def __init__(self, name: str, height: int, age: int, color: str):
         super().__init__(name, height, age)
-        self.color = color
+        self.__color = color
 
     def display(self):
-        print(f"\n{self.name} (Flower): {self.height}cm, \
-{self.age} days, {self.color} color")
+        print(f"\n{self.name} (Flower): {self.__height}cm, \
+{self.__age} days, {self.__color} color")
 
     def bloom(self):
         print(f"{self.name} is blooming beautifully!")
@@ -25,11 +25,11 @@ class Flower(Plant):
 class Tree(Plant):
     def __init__(self, name: str, height: int, age: int, diameter: int):
         super().__init__(name, height, age)
-        self.diameter = diameter
+        self.__diameter = diameter
 
     def display(self):
-        print(f"\n{self.name} (Tree): {self.height}cm, {self.age} days, \
-{self.diameter}cm diameter")
+        print(f"\n{self.name} (Tree): {self.__height}cm, {self.__age} days, \
+{self.__diameter}cm diameter")
 
     def produce_shade(self, diameter):
         print(f"{self.name} provides 78 square meters of shade")
@@ -39,15 +39,15 @@ class Vegetable(Plant):
     def __init__(self, name: str, height: int, age: int,
                  harvest_season: str, nutritional_value: str):
         super().__init__(name, height, age)
-        self.harvest_season = harvest_season
-        self.nutritional_value = nutritional_value
+        self.__harvest_season = harvest_season
+        self.__nutritional_value = nutritional_value
 
     def display(self):
-        print(f"\n{self.name} (Vegetable): {self.height}cm, \
-{self.age} days, {self.harvest_season} harvest")
+        print(f"\n{self.name} (Vegetable): {self.__height}cm, \
+{self.__age} days, {self.__harvest_season} harvest")
 
     def Vegdisplay(self):
-        print(f"{self.name} is rich in vitamin {self.nutritional_value}")
+        print(f"{self.name} is rich in vitamin {self.__nutritional_value}")
 
 
 def ft_plant_types():
