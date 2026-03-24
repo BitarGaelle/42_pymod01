@@ -4,11 +4,11 @@ class Plant:
         self.height = height
         self.day = day
 
-    def grow(self) -> None:
-        self.height += 0.8
+    def grow(self, added_height: float) -> None:
+        self.height += added_height
 
-    def age(self) -> None:
-        self.day += 1
+    def age(self, added_age: int) -> None:
+        self.day += added_age
 
     def show(self) -> None:
         print(f"{self.name}: {self.height:.1f}cm, {self.day} days old")
@@ -26,11 +26,11 @@ class Flower(Plant):
     def bloom(self):
         print(f" {self.name} is blooming beautifully!")
 
-    def grow(self) -> None:
-        super().grow()
+    def grow(self, added_height: float) -> None:
+        super().grow(added_height)
 
-    def age(self) -> None:
-        super().age()
+    def age(self, added_age: int) -> None:
+        super().age(added_age)
 
 
 class Tree(Plant):
@@ -47,11 +47,11 @@ class Tree(Plant):
         print(f"{self.name}  now produces a shade of \
 {self.height}cm long and {self.trunk_diameter}cm wide")
 
-    def grow(self) -> None:
-        super().grow()
+    def grow(self, added_height: float) -> None:
+        super().grow(added_height)
 
-    def age(self) -> None:
-        super().age()
+    def age(self, added_age: int) -> None:
+        super().age(added_age)
 
 
 class Vegetable(Plant):
@@ -66,12 +66,12 @@ class Vegetable(Plant):
         print(f" Harvest season: {self.harvest_season}")
         print(f" Nutritional value: {self.nutritional_value}")
 
-    def grow(self) -> None:
-        self.height += 2.1
+    def grow(self, added_height: float) -> None:
+        super().grow(added_height)
 
-    def age(self) -> None:
+    def age(self, added_age: int) -> None:
+        super().age(added_age)
         self.nutritional_value += 1
-        self.day += 1
 
 
 def ft_plant_types():
@@ -93,8 +93,8 @@ def ft_plant_types():
     tomato.show()
     print("[make tomato grow and age for 20 days]")
     for i in range(20):
-        tomato.age()
-        tomato.grow()
+        tomato.age(1)
+    tomato.grow(42)
     tomato.show()
 
 
